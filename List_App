@@ -1,0 +1,53 @@
+package myMain;
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+	public class MainClass {
+		static Scanner userinput = new Scanner(System.in);
+		public static void main(String[] args){
+			List<Object> userlist = new ArrayList<>();
+			String input;
+			String moreInput;
+			String edit;
+			boolean keepAdding = true;
+			
+			while (keepAdding) {
+				System.out.println("Add whatever you want to the list:");
+				input = userinput.nextLine();
+				userlist.add(input);
+				
+				System.out.println("Would you like to add another input? (NO for no)");
+				moreInput = userinput.nextLine();
+				if (moreInput.equalsIgnoreCase("NO")) {
+					keepAdding = false;
+				}
+			}
+				
+			while(true) {
+				System.out.println("Would you like to edit your list? (edit/delete/NO)");
+				edit =userinput.nextLine();
+				if (edit.equalsIgnoreCase("NO")) {
+					System.out.println("Your new list: " + userlist);
+					System.out.println("Ending Program");
+					break;
+				} else if (edit.equalsIgnoreCase("edit")) {
+					System.out.println("Enter the index of the item you want to edit:");
+					int index = userinput.nextInt();
+					userinput.nextLine();
+					if (index >= 0 && index < userlist.size()) {
+						System.out.println("Enter the new value:");
+						String newValue = userinput.nextLine();
+						userlist.set(index, newValue);
+					}
+				} else if (edit.equalsIgnoreCase("delete")) {
+						System.out.println("Enter the index of the item you want to delete:");
+						int index1 = userinput.nextInt();
+						userinput.nextLine();
+						if (index1 >= 0 && index1 < userlist.size()) {
+							userlist.remove(index1);
+						} 						}
+					}
+		 
+				}
+	}
